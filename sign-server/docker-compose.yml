@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  signserver:
+    image: keyfactor/signserver-ce:latest
+    container_name: acik_kaynak_signserver
+    ports:
+      - "8081:8080" # HTTP yönetim portu
+      - "9443:9443" # Güvenli HTTPS imza portu
+    environment:
+      - SIGNSERVER_NODEID=QAOps_SignNode
+    restart: unless-stopped

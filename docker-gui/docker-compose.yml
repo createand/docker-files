@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  headless-gui:
+    image: selenium/standalone-chromium:latest
+    container_name: headless-gui-server
+    restart: always
+    shm_size: 2g # Tarayıcının çökmemesi, RAM kilitlerini parçalaması için bu satır çok kritik moruk!
+    ports:
+      - "4444:4444" # Selenium Grid Otomasyon Portu
+      - "7900:7900" # İşte o şanlı canlı ekranı (NoVNC) tarayıcıya akıtacak sihirli web portu kanka!
+    environment:
+      - SE_EVENT_BUS_HOST=localhost
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - VNC_NO_PASSWORD=1 # Girişte şifre darlaması yapmasın, şak diye sızalım diye moruk
+      - SCREEN_WIDTH=1366
+      - SCREEN_HEIGHT=768
+    volumes:
+      - /dev/shm:/dev/shm

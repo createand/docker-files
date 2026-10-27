@@ -1,0 +1,6 @@
+docker run -d \
+  --name benim-vnc-masaustum \
+  -p 5901:5901 \
+  -p 7900:7900 \
+  --restart unless-stopped \
+  custom-ubuntu-desktop

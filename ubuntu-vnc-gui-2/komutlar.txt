@@ -1,0 +1,11 @@
+sudo docker run -d \
+  --name coklu_kullanici_vnc \
+  --privileged \
+  -v /dev:/dev \
+  -v ahmet_ev_dizini:/home/ahmet \
+  -v mehmet_ev_dizini:/home/mehmet \
+  -p 7901:7901 \
+  -p 7902:7902 \
+  --restart unless-stopped \
+  coklu-masaustu
+

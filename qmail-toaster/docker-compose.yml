@@ -1,0 +1,20 @@
+
+
+services:
+  qmail-toaster:
+    image: qmailtoaster/qmail-toaster:latest
+    container_name: qmail-toaster-server
+    restart: always
+    hostname: ://erdemdeneme.com
+    ports:
+      - "25:25"
+      - "110:110"
+      - "143:143"
+      - "80:80"
+    volumes:
+      - ./qmail-data:/var/qmail
+      - ./vpopmail-data:/home/vpopmail
+      - ./web-data:/var/www/html
+    environment:
+      - ADMIN_PASSWORD=admin123
+      - DEFAULT_DOMAIN=erdemdeneme.com

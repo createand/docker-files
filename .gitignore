@@ -1,0 +1,44 @@
+# Playwright Test Çıktıları (Video, Ekran Görüntüsü ve Trace Dosyaları)
+test-results/
+
+# Playwright HTML Rapor Klasörü
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Node.js Bağımlılıkları
+node_modules/
+package-lock.json
+
+# Docker ve Sistem Dosyaları
+.DS_Store
+*.log
+
+terraform-test/terraform
+
+.bash_history
+.bash_logout
+.bashrc
+.cache/
+.config/
+.git/
+.lesshst
+.local/
+.profile
+.ssh/
+.sudo_as_admin_successful
+.viminfo
+
+# Tüm terraform program dosyalarını engelle (Nerede olurlarsa olsunlar)
+terraform
+*/terraform
+**/terraform
+
+# Terraform'un arka planda indirdiği tüm gizli eklenti klasörlerini engelle
+.terraform/
+**/.terraform/
+.terraform.lock.hcl
+
+# Durum (state) dosyalarını engelle
+*.tfstate
+*.tfstate.*

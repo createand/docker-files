@@ -1,0 +1,26 @@
+services:
+  windows:
+    # Apple Silicon altyapısı için ARM uyumlu imajı çekiyoruz kanka
+    image: dockurr/windows-arm
+    container_name: windows_inside_utm
+    environment:
+      VERSION: "win11"
+      # KVM'i kapatıyoruz, tamamen emülasyon modunda çalışacak moruk!
+      KVM: "N"
+      # Emülasyon çok işlemci tüketeceği için kaynakları yüksek tutalım
+      RAM_SIZE: "6G"
+      CPU_CORES: "4"
+      DISK_SIZE: "10G"
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "8006:8006"
+      - "3389:3389/tcp"
+      - "3389:3389/udp"
+    volumes:
+      - win_data:/storage
+    stop_grace_period: 2m
+    restart: on-failure
+
+volumes:
+  win_data:
